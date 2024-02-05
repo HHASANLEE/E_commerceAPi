@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using E_commerceAPi.Dtoes;
+using E_commerceAPi.Services;
 namespace E_commerceAPi.Controllers
 {
     public class ShoppingController
@@ -11,12 +12,12 @@ namespace E_commerceAPi.Controllers
         public class ProductController : ControllerBase 
         {
             private readonly IProduct _product;
-            private readonly Response _response;
+            private readonly E_commerceAPi.Services.Response _response;
 
-            public ProductController(IProduct _product, Response _response)
+            public ProductController(IProduct _product, E_commerceAPi.Services.Response _response)
             {
-                _product = product;
-                _response = response;
+                this._product = _product;
+                this._response = _response;
             }
 
             [HttpGet("GetProduct")]

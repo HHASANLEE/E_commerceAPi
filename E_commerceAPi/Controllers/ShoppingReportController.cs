@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using E_commerceAPi.Dtoes;
+using E_commerceAPi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerceAPi.Controllers
@@ -7,14 +9,14 @@ namespace E_commerceAPi.Controllers
     {
         [ApiController]
         [Route("[controller]")]
-        public class CourseReportController : ControllerBase
+        public class ProductReportController : ControllerBase
         {
-            private readonly IProductReport _productreport;
-            private readonly Response _response;
+            private readonly E_commerceAPi.Services.ProductReportService _productreport;
+            private readonly E_commerceAPi.Services.Response _response;
 
-            public ProductReportController(IProductReport productreport, Response response)
+            public ProductReportController(E_commerceAPi.Services.ProductReportService productreport, E_commerceAPi.Services.Response response)
             {
-                _productreport = coursereport;
+                _productreport = productreport;
                 _response = response;
             }
 

@@ -1,9 +1,14 @@
 ﻿using AutoMapper;
+using E_commerceAPi.Domain;
+using E_commerceAPi.Domain.Entities;
+using E_commerceAPi.Dtoes;
+using E_commerceAPi.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Data.SqlTypes;
 
 namespace E_commerceAPi.Services
 {
-    public class CourseReportService : IProductReport
+    public class ProductReportService 
         {
             private readonly ProductDbContext _db;
             private readonly IMapper _mapper;
