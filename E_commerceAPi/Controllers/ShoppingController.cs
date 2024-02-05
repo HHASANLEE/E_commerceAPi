@@ -37,7 +37,7 @@ namespace E_commerceAPi.Controllers
                 return response;
             }
 
-            [HttpGet("GetCourseByName")]
+            [HttpGet("GetProductByName")]
             public async Task<IActionResult> GetbyNAme([FromQuery] string Name)
             {
                 var data = await _product.GetByNameAsync(Name);
@@ -55,7 +55,7 @@ namespace E_commerceAPi.Controllers
                 return response;
             }
 
-            [HttpPut("PutCourse")]
+            [HttpPut("PutProduct")]
             public async Task<IActionResult> Put([FromQuery] ProductPostDto dto)
             {
                 var check = _response.CheckState(dto);

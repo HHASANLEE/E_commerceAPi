@@ -1,5 +1,6 @@
 ﻿using E_commerceAPi.Dtoes;
 using E_commerceAPi.Interfaces;
+using E_commerceAPi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -13,10 +14,10 @@ namespace E_commerceAPi.Controllers
         public class UserController : ControllerBase
         {
             private readonly JWTService _token;
-            private readonly Response _response;
+            private readonly E_commerceAPi.Services.Response _response;
             private readonly IUser _user;
 
-            public UserController(JWTService token, Response response, IUser user)
+            public UserController(JWTService token, E_commerceAPi.Services.Response response, IUser user)
             {
                 _token = token;
                 _response = response;
@@ -45,7 +46,7 @@ namespace E_commerceAPi.Controllers
                 var check = _response.CheckState(dto);
                 if (check != null) return check;
 
-                var data = await _user.CreateUSer(dto);
+                var data = await _user.CreateUser(dto);
                 IActionResult response;
                 if (data)
                     response = _response.GetResponse("Succesful");
@@ -56,3 +57,4 @@ namespace E_commerceAPi.Controllers
 
         }
     }
+}
