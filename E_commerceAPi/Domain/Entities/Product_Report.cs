@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public int ProductId { get; set; }
         public decimal Amount { get; set; }
-
+        public string State { get; internal set; }
     }
 }
